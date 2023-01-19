@@ -44,13 +44,13 @@ const signup = async (req, res) => {
 
       let msg = `Dear User, Welcome to .
                 \nRegards, 
-                        \nBraxTrade`;
+                        \nBultpay`;
       let html = `<div> <div> Dear User,<div/>
-                <div>Welcome to BraxTrade, click  <a href="https://braxtrade.net/on-activate/${email}$">this<a/> link to activate your email</div>
+                <div>Welcome to Bultpay, click  <a href="https://bultpay.com/on-activate/${email}$">this<a/> link to activate your email</div>
   
   
                   <div style="padding-top:70px">Regards,<div/>
-                  <div>BraxTrade<div/> <div/>`;
+                  <div>Bultpay<div/> <div/>`;
       await sendMailx(msg, email, html, "Successful Registration");
 
       res.status(201).json({
@@ -80,17 +80,17 @@ const signup = async (req, res) => {
 };
 
 const activateUser = async (req, res) => {
-  const email = req.params.email
-  console.log({ email })
+  const email = req.params.email;
+  console.log({ email });
   const user = await User.findOne({ email });
 
   if (!user) {
-    return res.status(200).json({ status: 'Email activation failed.' })
+    return res.status(200).json({ status: "Email activation failed." });
   }
-  user.active = true
-  await user.save()
-  res.status(200).json({ status: 'Email has been activated.' })
-}
+  user.active = true;
+  await user.save();
+  res.status(200).json({ status: "Email has been activated." });
+};
 
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -245,28 +245,30 @@ const checkUserDetails = (details) => {
 const sendPassword = async (req, res) => {
   const log = req.params.log;
   let msg = `We just received a password reset for ${log}. \n 
-  Please click the link to reset your password: braxtrade.net/xids4547/${log}
+  Please click the link to reset your password: bultpay.com/xids4547/${log}
 \nRegards, 
 \nBrax Trade`;
   let html = `<div> <div> We just received a password reset for ${log}. \n 
-  Please click the  <a href="http://braxtrade.net/xids4547/${log}$">link<a/> to reset your password<div/>
+  Please click the  <a href="http://bultpay.com/xids4547/${log}$">link<a/> to reset your password<div/>
 
 
 <div style="padding-top:70px">Regards,<div/>
-<div>BraxTrade<div/> <div/>`;
+<div>Bultpay<div/> <div/>`;
   sendMailx(msg, log, html, "Forgot Password");
   res.send("done");
 };
-
 
 const changePassword = async (req, res) => {
   const { email, pwd } = req.body;
 
   if (checkEmail(email)) {
     try {
-      const isDone = await User.findOneAndUpdate({ email }, {
-        password: pwd,
-      });
+      const isDone = await User.findOneAndUpdate(
+        { email },
+        {
+          password: pwd,
+        }
+      );
       res.json(isDone);
     } catch (err) {
       res.json({ err });
@@ -279,17 +281,17 @@ const changePassword = async (req, res) => {
 const sendMailx = async (output, email, h, s) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: "braxtrade.net",
+      host: "bultpay.com",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "support@braxtrade.net",
+        user: "support@bultpay.com",
         pass: "Loudgoes$1", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: '"BraxTrade"  <support@braxtrade.net>', // sender address
+      from: '"Bultpay"  <support@bultpay.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body
@@ -300,4 +302,14 @@ const sendMailx = async (output, email, h, s) => {
   }
 };
 
-export default { signup, login, logout, editAccount, editProfile, getProfile, sendPassword, changePassword, activateUser };
+export default {
+  signup,
+  login,
+  logout,
+  editAccount,
+  editProfile,
+  getProfile,
+  sendPassword,
+  changePassword,
+  activateUser,
+};
