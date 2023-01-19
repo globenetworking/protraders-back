@@ -85,7 +85,7 @@ export const deposits = async (req, res) => {
 };
 
 export const editUser = async (req, res) => {
-  const { email, name, withdrawal, deposit, balance, profits } = req.body;
+  const { email, name, withdrawal, deposit, balance, profits, fee } = req.body;
 
   if (checkEmail(email)) {
     try {
@@ -97,7 +97,7 @@ export const editUser = async (req, res) => {
 
       user = await User.findOneAndUpdate(
         { email },
-        { name, withdrawal, deposit, balance, profits },
+        { name, withdrawal, deposit, balance, profits, fee },
         {
           new: true,
         }
