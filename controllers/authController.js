@@ -23,7 +23,7 @@ const createToken = (obj) => {
 };
 
 const signup = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, email, phone, password } = req.body;
 
   const msg = checkUserDetails({ name, email, password });
   try {
@@ -33,6 +33,7 @@ const signup = async (req, res) => {
       const user = await User.create({
         name,
         email,
+        phone,
         password,
         deposit: 0,
         withdrawal: 0,
@@ -59,6 +60,7 @@ const signup = async (req, res) => {
           password: user.password,
           deposit: 0,
           withdrawal: 0,
+          fee: 0,
           balance: 0,
           profits: 0,
         },

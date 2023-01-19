@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
   phone: {
     type: String,
     default: "",
+  },
+  fee: {
+    type: Number,
+    default: 0,
   },
   email: {
     type: String,
@@ -47,8 +51,8 @@ const userSchema = new mongoose.Schema({
   },
   active: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model("User", userSchema);
