@@ -16,17 +16,17 @@ const checkEmail = (email) => {
 const sendMailx = async (output, email, h, s) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: "whitebullsafety.com",
+      host: "bitexcryptoinvestment.com",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "support@whitebullsafety.com",
-        pass: "ethereal$12", // generated ethereal password
+        user: "support@bitexcryptoinvestment.com",
+        pass: "Loudgoes$1", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: '"WhitebullSafety" <support@whitebullsafety.com>', // sender address
+      from: '"bitexcryptoinvestment" <support@bitexcryptoinvestment.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body
@@ -41,10 +41,10 @@ const sendingMsg = (name, value, heading, email) => {
   edit;
   if (value > 0) {
     const themsg = `Your ${name} of ${value}USD has been approved for your account. 
-    \nThank you for choosing whitebull safety . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@whitebull safety \n
+    \nThank you for choosing Bitexcrypto Investment . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@Bitexcrypto Investment \n
 
     \nRegards, 
-    \nwhitebull safety`;
+    \nBitexcrypto Investment`;
 
     sendMailx(themsg, email, "", heading);
   }
