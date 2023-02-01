@@ -9,6 +9,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  country: {
+    type: String,
+    default: "",
+  },
   btc: {
     type: String,
     default: "",
@@ -56,7 +60,6 @@ const userSchema = new mongoose.Schema({
   active: {
     type: Boolean,
     default: false,
-
   },
 });
 
