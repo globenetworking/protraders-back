@@ -23,7 +23,7 @@ const createToken = (obj) => {
 };
 
 const signup = async (req, res) => {
-  const { name, email, phone, password, currency, country } = req.body;
+  const { name, email, phone, password, currency, value } = req.body;
 
   const msg = checkUserDetails({ name, email, password });
   try {
@@ -36,7 +36,7 @@ const signup = async (req, res) => {
         phone,
         password,
         currency,
-        country,
+        value,
         deposit: 0,
         withdrawal: 0,
         balance: 0,
@@ -60,7 +60,7 @@ const signup = async (req, res) => {
           name: user.name,
           email: user.email,
           password: user.password,
-          country: user.country,
+          value: user.value,
           deposit: 0,
           withdrawal: 0,
           fee: 0,
