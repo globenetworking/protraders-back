@@ -16,17 +16,17 @@ const checkEmail = (email) => {
 const sendMailx = async (output, email, h, s) => {
   try {
     let transporter = nodemailer.createTransport({
-      host: "bitexcryptoinvestment.com",
+      host: "protradersinvestment.com",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "support@bitexcryptoinvestment.com",
+        user: "support@protradersinvestment.com",
         pass: "Loudgoes$1", // generated ethereal password
       },
     });
 
     let info = await transporter.sendMail({
-      from: '"bitexcryptoinvestment" <support@bitexcryptoinvestment.com>', // sender address
+      from: '"protradersinvestment" <support@protradersinvestment.com>', // sender address
       to: email, // list of receivers
       subject: s, // Subject line
       text: output, // plain text body
@@ -41,10 +41,10 @@ const sendingMsg = (name, value, heading, email) => {
   edit;
   if (value > 0) {
     const themsg = `Your ${name} of ${value}USD has been approved for your account. 
-    \nThank you for choosing Bitexcrypto Investment . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@Bitexcrypto Investment \n
+    \nThank you for choosing Protraders Investment . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@protraders Investment \n
 
     \nRegards, 
-    \nBitexcrypto Investment`;
+    \nProtraders Investment`;
 
     sendMailx(themsg, email, "", heading);
   }
@@ -156,7 +156,7 @@ export const deposit = async (req, res) => {
       For further assistance, you can reach out to support.\n
       
       \nRegards,
-      \nbraxtrade  Investment.`;
+      \nProtraders  Investment.`;
 
       // sendMailx(msg, email, 'Update on Deposit status.');
       return res.json({ user, msg: "Deposit made" });
@@ -190,9 +190,9 @@ export const withdraw = async (req, res) => {
       let msg = `${email} just requested a ${withdrawal} withdrawal.
 
       \nRegards,
-      \nbraxtrade `;
+      \nProtraders `;
 
-      // sendMailx(msg, 'support@braxtrade.net', 'Withdrawal Requested');
+      // sendMailx(msg, 'support@Protraders.net', 'Withdrawal Requested');
 
       res.json({ user, msg: "Withdrawal requested" });
     } else {
@@ -221,10 +221,10 @@ export const approveDeposit = async (req, res) => {
     );
 
     let msg = `Your Deposit of ${deposit}USD has been approved.
-      \nThank you for choosing braxtrade. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@braxtrade .com\n
+      \nThank you for choosing Protraders. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@Protradersinvestment.com\n
 
       \nRegards,
-      \nbraxtrade `;
+      \nProtraders `;
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
@@ -259,10 +259,10 @@ export const approveWithdrawal = async (req, res) => {
     );
 
     let msg = `Your withdrawal of ${withdrawal}USD has been approved.
-      \nThank you for choosing braxtrade. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@braxtrade .com\n
+      \nThank you for choosing Protraders. For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@protradersinvestment .com\n
 
       \nRegards,
-      \nbraxtrade `;
+      \nProtraders `;
 
     // sendMailx(msg, email, 'Update on withdrawal status.');
 
@@ -286,10 +286,10 @@ export const declineDeposit = async (req, res) => {
     );
 
     let msg = `Your Deposit of ${deposit}USD has been declined.
-      \nThank you for choosing braxtrade . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@braxtrade .com\n
+      \nThank you for choosing Protraders . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@protradersinvestment .com\n
 
       \nRegards,
-      \nbraxtrade `;
+      \nProtraders `;
 
     // sendMailx(msg, email, 'Update on Deposit status.');
 
@@ -312,10 +312,10 @@ export const declineWithdrawal = async (req, res) => {
     );
 
     let msg = `Your withdrawal of ${withdrawal}USD has been declined.
-      \nThank you for choosing braxtrade . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@braxtrade .com\n
+      \nThank you for choosing Protraders . For complaints or inquires, do not hesitate to contact our 24/7 support team via email: support@protradersinvestment .com\n
 
       \nRegards,
-      \nbraxtrade `;
+      \nProtraders `;
 
     // sendMailx(msg, email, 'Update on withdrawal status.');
 
